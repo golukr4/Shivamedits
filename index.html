@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivam Edits Alone | Portfolio</title>
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --bg-color: #0f0f0f;
+            --card-bg: #1e1e1e;
+            --accent-red: #FF0000;
+            --text-white: #ffffff;
+            --text-gray: #cccccc;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .profile-img-placeholder {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #333, var(--accent-red));
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent-red);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .username {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            letter-spacing: 1px;
+        }
+
+        .bio {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-red);
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-gray);
+            white-space: pre-line;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- LINKS SECTION --- */
+        .links-container {
+            width: 100%;
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 50px;
+        }
+
+        .link-btn {
+            display: block;
+            background-color: var(--card-bg);
+            color: var(--text-white);
+            text-decoration: none;
+            padding: 18px 25px;
+            border-radius: 50px;
+            border: 1px solid #333;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            animation: slideUp 0.6s forwards;
+            cursor: pointer; /* Pointer cursor for JS buttons */
+        }
+
+        .link-btn:nth-child(1) { animation-delay: 0.2s; }
+        .link-btn:nth-child(2) { animation-delay: 0.3s; }
+        .link-btn:nth-child(3) { animation-delay: 0.4s; }
+        .link-btn:nth-child(4) { animation-delay: 0.5s; }
+
+        .link-btn:hover {
+            border-color: var(--accent-red);
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+            background-color: #252525;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            color: #666;
+            font-size: 0.8rem;
+            padding-bottom: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 480px) {
+            .username { font-size: 1.5rem; }
+            .link-btn { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="profile-img-placeholder">SK</div>
+        <h1 class="username">@shivam_edits_alone</h1>
+        <div class="bio">
+✨ Jaisa bhi hoon, khud ke liye perfect hoon❤️👑
+😶‍🌫️ Silent vibes | Dangerous mind 🖤🔥
+🚀 Editor Boy 🔥😎
+💸 Money is tool, mind is weapon 🤑💰
+        </div>
+    </div>
+
+    <div class="links-container">
+        
+        <a onclick="openProfile('shivam_edits_alone')" class="link-btn" style="border-color: var(--accent-red);">
+            Follow on Instagram 🔥
+        </a>
+
+        <a href="https://www.instagram.com/p/DP8SpAKgEU8/" target="_blank" class="link-btn">
+            Watch My Viral Reel 🔥
+        </a>
+
+        <a href="https://www.instagram.com/p/DO47qJAkw5x/" target="_blank" class="link-btn">
+            Watch My Viral Reel 🔥
+        </a>
+
+        <a href="https://www.youtube.com/@shivameditsalone" target="_blank" class="link-btn">
+            Subscribe on YouTube 📺
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Shivam Edits Alone. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- SPECIAL FUNCTION TO OPEN INSTAGRAM APP ---
+        function openProfile(username) {
+            // Check if user is on Mobile
+            var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // Try to open the App Scheme
+                window.location.href = "instagram://user?username=" + username;
+                
+                // Fallback to Web URL if app doesn't open within 1 second
+                setTimeout(function() {
+                    window.location.href = "https://www.instagram.com/" + username;
+                }, 1000);
+            } else {
+                // If on Desktop, just open web link
+                window.open("https://www.instagram.com/" + username, '_blank');
+            }
+        }
+
+        // Animation Logic
+        const buttons = document.querySelectorAll('.link-btn');
+        buttons.forEach(btn => {
+            btn.addEventListener('mousedown', function() { this.style.transform = 'scale(0.95)'; });
+            btn.addEventListener('mouseup', function() { this.style.transform = 'translateY(-5px)'; });
+            btn.addEventListener('mouseleave', function() { this.style.transform = ''; });
+        });
+    </script>
+
+</body>
+</html>
